@@ -63,11 +63,30 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+    Tested new toy button before changing anything and saw 500 error under networks tab. 
+
+    Check server logs and see a proxy error.
+
+    Adjusted Toys to Toy in the create function then refresh to see it working properly.
 
 - Update the number of likes for a toy
 
   - How I debugged:
+  Tested like button and got a unhandled rejection (SyntaxERror): Unexpected end of JSON input.
+
+  Check server logs and see "unpermitted parameter: :id"
+
+  Notice "render json: toy" is missing and added it into update function
+
+  Refreshed and tested to see if working properly
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+  Tested Donate to Goodwill button and see 404 error in the console.
+
+  Saw "ActionController::RoutingError (No route matches [DELETE] "/toys/6")
+
+  Added destroy route under configs
+
+  Tested Donate to Goodwill button to see if working properly
